@@ -1,5 +1,4 @@
-import { ajax } from "../tools/ajax";
-
+import axios from "axios";
 export const getCityWeather = async (city) => {
 	const optionRequest = {
 		url: "http://api.openweathermap.org/data/2.5/weather",
@@ -9,5 +8,11 @@ export const getCityWeather = async (city) => {
 			units: "metric",
 		},
 	};
-	return await ajax(optionRequest);
+	try {
+		const resp = await axios.request(optionRequest);
+		if (resp.status === 200) return resp.data;
+		return null;
+	} catch (error) {
+		return null;
+	}
 };

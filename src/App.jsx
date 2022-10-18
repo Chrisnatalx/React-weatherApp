@@ -18,12 +18,11 @@ export const App = () => {
 	return (
 		<>
 			<Search setCity={setCity} />
-			{city ? (
-				weather && <Card weather={weather} city={city}></Card>
+			{weather ? (
+				<Card weather={weather} city={city}></Card>
 			) : (
 				<Flex justify="center">
 					<Badge ml="-40px" colorScheme="blue">
-						{" "}
 						Busca el clima de tu ciudad!
 					</Badge>
 				</Flex>
